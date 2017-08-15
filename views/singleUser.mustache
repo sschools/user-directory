@@ -15,15 +15,20 @@
         </div>
         <div class = "top-right">
           <h1>{{name}}</h1>
-          <p>{{address.city}}, {{address.country}} | {{job}}, {{company}}</p>
+          {{#job}}
+          <p>{{#address.city}}{{address.city}}, {{/address.city}}{{address.country}} | {{job}}, {{company}}</p>
+          {{/job}}
+          {{^job}}
+          <p>{{#address.city}}{{address.city}}, {{/address.city}}{{address.country}} | <span>Available For Hire</span></p>
+          {{/job}}
           <p>{{email}} | {{phone}}</p>
         </div>
         <div class = "bottom-left">
-          <p>Education</p>
+          {{#university}}<p>Education</p>{{/university}}
           <p>Skills</p>
         </div>
         <div class = "bottom-right">
-          <p>{{university}}</p>
+          {{#university}}<p>{{university}}</p>{{/university}}
           {{#skills}}
           <p>{{.}}</p>
           {{/skills}}

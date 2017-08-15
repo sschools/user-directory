@@ -16,7 +16,7 @@ h5 {
   font-weight: 100;
 }
 
-p {
+p, span {
   color: #cc0000;
 }
 
