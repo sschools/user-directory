@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+}
+
+h3 {
+  color: #0fbfff;
+}
+
+h5 {
+  font-weight: 100;
+}
+
+p {
+  color: #cc0000;
+}
+
+img {
+  width: 100px;
+  padding-left: 60px;
+}
+
+section {
+  display: inline-block;
+  border: 1px solid #000000;
+  width: 20%;
+  margin: 10px;
+  padding: 10px;
+}

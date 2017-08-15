@@ -1,5 +1,11 @@
 <section>
   <img src = "{{avatar}}"/>
   <h3>{{name}}</h3>
+  {{#job}}
   <h5>{{job}}, {{company}}</h5>
+  {{/job}}
+  {{^job}}
+  <p>Available For Hire</p>
+  {{/job}}
+
 </section>
