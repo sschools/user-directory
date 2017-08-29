@@ -11,14 +11,14 @@ const RobotSchema = new mongoose.Schema({
   company: { type: String},
   skills: {type: Array},
   phone: {type: String},
-  address: [{
+  address: {
     street_num: {type: Number},
     street_name: {type: String},
     city: {type: String},
     state_or_province: {type: String},
     postal_code: {type: String},
     country: {type: String}
-  }]
+  }
 
 });
 

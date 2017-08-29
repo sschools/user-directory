@@ -34,6 +34,14 @@
           {{/skills}}
         </div>
       </div>
+      <div class="sign-up">
+        <h3>Enter a Password Below and Click Create Account or Login as Appropriate</h3>
+        <form action="/index/{{name}}" method="POST">
+          <input type="password" name="password" placeholder="Password Here">
+          <button type="submit" name="login" value="{{name}}">Log In</button>
+          <button type="submit" name="create" value="{{name}}">Create Account</button>
+        </form>
+      </div>
     </main>
   </body>
 </html>

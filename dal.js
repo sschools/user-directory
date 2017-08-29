@@ -25,9 +25,22 @@ function getAvailableRobots () {
   })
 }
 
+function updateRobot(name, data) {
+  getAllRobots().then(function(robots) {
+    let bots= robots;
+    for (let i = 0; i < bots.length; i++) {
+      if (bots[i].name === name) {
+        console.log(bots[i]);
+      }
+    }
+  });
+
+}
+
 module.exports = {
   getAllRobots: getAllRobots,
   getRobotByName: getRobotByName,
   getJobRobots: getJobRobots,
-  getAvailableRobots: getAvailableRobots
+  getAvailableRobots: getAvailableRobots,
+  updateRobot: updateRobot
 }
