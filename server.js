@@ -67,7 +67,6 @@ app.post("/index/:name", function (req, res) {
 app.post("/edit", function(req, res) {
   let name=req.body.nameButton;
   updateRobot(name, req.body);
-  console.log(req.body);
   res.redirect("/index");
 });
 

@@ -26,15 +26,16 @@ function getAvailableRobots () {
 }
 
 function updateRobot(name, data) {
-  getAllRobots().then(function(robots) {
-    let bots= robots;
-    for (let i = 0; i < bots.length; i++) {
-      if (bots[i].name === name) {
-        console.log(bots[i]);
-      }
-    }
-  });
-
+  return Robot.updateOne({"name": name},
+    {"$set": {"job": data.job,
+    "company": data.company,
+    "address.city": data.city,
+    "address.country": data.country,
+    "email": data.email,
+    "phone": data.phone}},
+     function(err) {
+      console.log("Error in update", err);
+    });
 }
 
 module.exports = {
