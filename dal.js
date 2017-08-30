@@ -38,10 +38,19 @@ function updateRobot(name, data) {
     });
 }
 
+function addPassword(name, password) {
+  return Robot.updateOne({"name": name},
+    {"$set": {"password": password}},
+    function(err) {
+      console.log("Error in add password ", err);
+    });
+}
+
 module.exports = {
   getAllRobots: getAllRobots,
   getRobotByName: getRobotByName,
   getJobRobots: getJobRobots,
   getAvailableRobots: getAvailableRobots,
-  updateRobot: updateRobot
+  updateRobot: updateRobot,
+  addPassword: addPassword
 }

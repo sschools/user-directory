@@ -18,8 +18,8 @@ const RobotSchema = new mongoose.Schema({
     state_or_province: {type: String},
     postal_code: {type: String},
     country: {type: String}
-  }
-
+  },
+  password: {type: String}
 });
 
 const Robot = mongoose.model('Robot', RobotSchema);

@@ -3,7 +3,7 @@ const mustacheExpress = require("mustache-express");
 const session = require("express-session");
 const parseurl = require("parseurl");
 const bodyParser = require("body-parser");
-const {getAllRobots, getRobotByName, getJobRobots, getAvailableRobots, updateRobot} = require("./dal");
+const {getAllRobots, getRobotByName, getJobRobots, getAvailableRobots, updateRobot, addPassword} = require("./dal");
 const mongoose = require('mongoose')
 const Robot = require('./models/Robot')
 const app = express();
@@ -49,19 +49,33 @@ app.get("/index/:name", function (request, respond) {
   });
 });
 
+app.get("/badPassword", function(req, res) {
+  res.render("badPassword");
+});
+
 app.post("/index/:name", function (req, res) {
   if (req.body.create) {
     let name = req.body.create;
     let p = req.body.password;
+    addPassword(name, p);
     getRobotByName(name).then(function (robot) {
       let bot = robot[0];
-      bot["password"] = p;
+      let message = "Password Saved";
       return res.render("edit", bot);
     });
   } else {
     let name = req.body.login;
+    let p = req.body.password;
+    getRobotByName(name).then(function (robot) {
+      let bot = robot[0];
+      if (bot.password !== p) {
+        let message = "Password is incorrect";
+        res.redirect("/badPassword");
+      } else {
+        return res.render("edit", bot);
+      }
+    });
   }
-  //return res.redirect("/index");
 });
 
 app.post("/edit", function(req, res) {
