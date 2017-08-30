@@ -14,6 +14,7 @@ app.set("views", __dirname + "/views");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("Public"));
+
 app.use(session({
   secret: "elvis",
   resave: false,
