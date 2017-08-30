@@ -32,7 +32,9 @@ function updateRobot(name, data) {
     "address.city": data.city,
     "address.country": data.country,
     "email": data.email,
-    "phone": data.phone}},
+    "phone": data.phone,
+    "university": data.university,
+    "skills": data.skills}},
      function(err) {
       console.log("Error in update", err);
     });
@@ -46,11 +48,17 @@ function addPassword(name, password) {
     });
 }
 
+function addRobot(newBot) {
+  let newUser = new Robot(newBot);
+  return newUser.save();
+}
+
 module.exports = {
   getAllRobots: getAllRobots,
   getRobotByName: getRobotByName,
   getJobRobots: getJobRobots,
   getAvailableRobots: getAvailableRobots,
   updateRobot: updateRobot,
-  addPassword: addPassword
+  addPassword: addPassword,
+  addRobot: addRobot
 }

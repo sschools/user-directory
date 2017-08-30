@@ -12,37 +12,37 @@
       <div class = "single-container">
         <div class = "top-left">
           <img src="{{avatar}}" class = "round">
-          {{#message}}
-            <h2>{{message}}</h2}
-          {{/message}}
         </div>
         <div class = "top-right">
           <h1>{{name}}: Change Items Below to Edit Your Info</h1>
           <form action="/edit" method="POST">
+            <label for="avatar">Picture URL: </label>
+            <input type="text" name="avatar"><br>
             <label for"city">City: </label>
-            <input type="text" name="city" value="{{address.city}}">
+            <input type="text" name="city" value="{{address.city}}"><br>
             <label for"country">Country: </label>
-            <input type="text" name="country" value="{{address.country}}">
+            <input type="text" name="country" value="{{address.country}}"><br>
             <label for="job">Job: </label>
-            <input type="text" name="job" value="{{job}}">
+            <input type="text" name="job" value="{{job}}"><br>
             <label for="company">Company: </label>
-            <input type="text" name="company" value="{{company}}">
+            <input type="text" name="company" value="{{company}}"><br>
             <label for="email">Email: </label>
-            <input type="email" name="email" value="{{email}}">
+            <input type="email" name="email" value="{{email}}"><br>
             <label for="phone">Phone: </label>
-            <input type="text" name="phone" value="{{phone}}">
+            <input type="text" name="phone" value="{{phone}}"><br>
+            <label for="university">University: </label>
+            <input type="text" name="university" value="{{university}}"><br>
+            <label for="skills">Skills: </label>
+            {{#skills}}
+            <input type="text" name="skills" value="{{.}}">
+            {{/skills}}
+            <br>
             <button type="submit" name="nameButton" value="{{name}}">Change Data</button>
           </form>
         </div>
-        <div class = "bottom-left">
-          {{#university}}<p>Education</p>{{/university}}
-          <p>Skills</p>
-        </div>
+
         <div class = "bottom-right">
-          {{#university}}<p>{{university}}</p>{{/university}}
-          {{#skills}}
-          <p>{{.}}</p>
-          {{/skills}}
+
         </div>
       </div>
     </main>
