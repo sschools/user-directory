@@ -67,3 +67,22 @@ section {
 .bottom-left {
   text-align: right;
 }
+
+label, input {
+  margin: 5px 2px;
+}
+
+button {
+  width: 100px;
+  height: 30px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+button:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
